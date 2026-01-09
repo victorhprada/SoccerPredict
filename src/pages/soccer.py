@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 import os
+
 # --- CONFIGURAÇÃO DA PÁGINA ---
 st.set_page_config(
     page_title="Preditor Brasileirão MVP",
@@ -19,7 +20,12 @@ def carregar_dados():
     diretorio_atual = os.path.dirname(__file__)
     
     # Sobe um nível (..) para sair de 'src' e entra em 'dados'
-    caminho_arquivo = os.path.join(diretorio_atual, '..', 'dados', 'brasileirao_dados_processados.csv')
+    caminho_arquivo = os.path.join(diretorio_atual, '..', '..', 'dados', 'brasileirao_dados_processados.csv')
+
+    # Debug: Se der erro, o site vai mostrar onde está tentando procurar
+    if not os.path.exists(caminho_arquivo):
+        st.error(f"Arquivo não encontrado em: {caminho_arquivo}")
+        return pd.DataFrame()
     
     df = pd.read_csv(caminho_arquivo)
     
@@ -65,6 +71,7 @@ def carregar_dados():
     return df
 
 df = carregar_dados()
+df.fillna(0, inplace=True)
 
 # --- 2. TREINAMENTO DO MODELO (NO BACKEND) ---
 def treinar_modelo(df):
