@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Ambiente Virtual
+venv/
+env/
+ENV/
+.venv
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Sistema Operacional
+.DS_Store
+Thumbs.db
+
+# Modelos treinados (muito grandes para git)
+*.pkl
+*.h5
+*.model
+
+# Dados (opcional - descomente se não quiser versionar)
+# dados/*.csv
+
+# Logs
+*.log
+
