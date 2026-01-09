@@ -71,7 +71,6 @@ def carregar_dados():
     return df
 
 df = carregar_dados()
-df.fillna(0, inplace=True)
 
 # --- 2. TREINAMENTO DO MODELO (NO BACKEND) ---
 def treinar_modelo(df):
