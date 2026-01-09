@@ -25,7 +25,7 @@ with st.spinner('Conectando aos servidores da NBA...'):
 if df_nba is not None:
     # Selecionar colunas interessantes
     # TeamCity, TeamName, Conference, W (Vitórias), L (Derrotas), WinPCT (Aproveitamento)
-    cols = ['Conference', 'TeamCity', 'TeamName', 'W', 'L', 'WinPCT', 'L10']
+    cols = ['Conference', 'TeamCity', 'TeamName', 'WINS', 'LOSSES', 'WinPCT', 'L10']
     df_clean = df_nba[cols].copy()
     
     # Traduzindo colunas
